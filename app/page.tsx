@@ -114,10 +114,10 @@ export default function Home() {
               link="#"
             />
             <ProjectCard
-              title="Análise de Finanças com PySpark"
-              description="CRUD Simples para análise de dados com PySpark."
+              title="Análise de Vendas com PySpark"
+              description="Dashboard Em Python pra análise de Vendas."
               image="/placeholder.svg?height=300&width=500"
-              tags={["Em Breve","Python", "PySpark"]}
+              tags={["Em Breve","Python", "PySpark", "Streamlit"]}
               link="https://github.com/felipemchdev/fin_analysis_py"
             />
             <ProjectCard
