@@ -115,9 +115,9 @@ export default function Home() {
             />
             <ProjectCard
               title="Análise de Vendas com Streamlit"
-              description="Dashboard Em Python pra análise de Vendas."
-              image="/placeholder.svg?height=300&width=500"
-              tags={["Em Breve","Python", "Pandas", "Streamlit"]}
+              description="Dashboard Em Python pra análise de Vendas. (USE JUPYTER NO VSCODE PARA ACESSAR O NOTEBOOK)"
+              image="/tsp.png?height=300&width=500"
+              tags={["Jupyter","Python", "Pandas", "Streamlit"]}
               link="https://github.com/felipemchdev/fin_analysis_py"
             />
             <ProjectCard
