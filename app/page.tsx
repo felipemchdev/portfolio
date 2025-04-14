@@ -97,7 +97,7 @@ export default function Home() {
               description="Esse site que você está vendo agora 😀"
               image="/die.png?height=300&width=500"
               tags={["React.js", "Next.js", "TypeScript", "Tailwind CSS"]}
-              link="#inicio"
+              link="https://github.com/felipemchdev/portfolio"
             />
             <ProjectCard
               title="API Site de Eventos"
@@ -129,8 +129,8 @@ export default function Home() {
             />
             <ProjectCard
               title="Site de Eventos"
-              description="Página para eventos, com sistema de inscritos e gcontador de convites."
-              image="/placeholder.svg?height=300&width=500"
+              description="Página para eventos, com sistema de inscritos e contador de convites."
+              image="/image.png?height=300&width=500"
               tags={["React.js", "Next.js", "TypeScript", "Tailwind CSS"]}
               link="https://github.com/felipemchdev/webevent_react-node"
             />
