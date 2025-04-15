@@ -134,6 +134,13 @@ export default function Home() {
               tags={["React.js", "Next.js", "TypeScript", "Tailwind CSS"]}
               link="https://github.com/felipemchdev/webevent_react-node"
             />
+            <ProjectCard
+              title="Calculadora KivyMD com Matplotlib"
+              description="Calculadora em KivyMD com Matplotlib, para gerar gráficos das funções."
+              image="/b.png?height=300&width=500"
+              tags={["KivyMD", "Matplotlib", "Python"]}
+              link="https://github.com/felipemchdev/CalculadoraKivyMD/releases/tag/KIVY!"
+            />
           </div>
         </section>
 
