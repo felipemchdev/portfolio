@@ -109,9 +109,9 @@ export default function Home() {
             <ProjectCard
               title="DataLake Simples"
               description="Carga e manipulação de dados em formato Parquet."
-              image="/placeholder.svg?height=300&width=500"
-              tags={["Em Breve","Python", "DuckDB", "Parquet"]}
-              link="#"
+              image="/iamage.png?height=300&width=500"
+              tags={["Python", "DuckDB", "Parquet"]}
+              link="https://github.com/felipemchdev/datalake_py_parquet"
             />
             <ProjectCard
               title="Análise de Vendas com Streamlit"
