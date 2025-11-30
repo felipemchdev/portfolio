@@ -1,272 +1,298 @@
-import { ChevronDown, Github, Linkedin, Mail } from "lucide-react"
-import Image from "next/image"
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, Github, Linkedin, Mail, Calendar } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ProjectCard } from "@/components/project-card"
-import { SkillBadge } from "@/components/skill-badge"
+import DotGridShader from "@/components/DotGridShader"
 
-export default function Home() {
+import ProjectCard from "@/components/project-card"
+import AnimatedHeading from "@/components/animated-heading"
+import RevealOnView from "@/components/reveal-on-view"
+import { SkillsSection } from "@/components/skills-section"
+import { ExperienceSection } from "@/components/experience-section"
+import { ContactSection } from "@/components/contact-section"
+import ChatbotLoading from "@/components/chatbot-loading"
+
+export default function Page() {
+  const projects = [
+    {
+      title: "Portfólio",
+      subtitle: "Este site que você está vendo agora 😄",
+      imageSrc: "/images/portfolio-screenshot.png",
+      tags: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
+      href: "https://github.com/felipemchdev/portfolio",
+      priority: true,
+      gradientFrom: "#0f172a",
+      gradientTo: "#2563eb",
+    },
+    {
+      title: "API Site de Eventos",
+      subtitle: "API para se inscrever em eventos, com sistema de contabilização de inscritos",
+      imageSrc: "/images/api-eventos.png",
+      tags: ["Python", "Flask", "SQLAlchemy"],
+      href: "https://github.com/felipemchdev/Event_API_Flask",
+      priority: false,
+      gradientFrom: "#111827",
+      gradientTo: "#10b981",
+    },
+    {
+      title: "DataLake Simples",
+      subtitle: "Carga e manipulação de dados em formato Parquet",
+      imageSrc: "/images/datalake.png",
+      tags: ["Python", "DuckDB", "Parquet"],
+      href: "https://github.com/felipemchdev/datalake_py_parquet",
+      priority: false,
+      gradientFrom: "#0b132b",
+      gradientTo: "#f59e0b",
+    },
+    {
+      title: "Análise de Vendas com Streamlit",
+      subtitle: "Dashboard em Python para análise de vendas",
+      imageSrc: "/images/analise-financeira.png",
+      tags: ["Jupyter", "Python", "Pandas", "Streamlit"],
+      href: "https://github.com/felipemchdev/fin_analysis_py",
+      priority: false,
+      gradientFrom: "#0f172a",
+      gradientTo: "#ec4899",
+    },
+    {
+      title: "LLM Chatbot",
+      subtitle: "Em desenvolvimento...",
+      customContent: <ChatbotLoading />,
+      tags: ["Em Breve", "Python", "LangChain", "Claude Sonnet", "API"],
+      href: "#",
+      priority: false,
+      gradientFrom: "#1f2937",
+      gradientTo: "#8b5cf6",
+    },
+    {
+      title: "Site de Eventos",
+      subtitle: "Página para eventos, com sistema de inscritos e contador de convites",
+      imageSrc: "/images/site-eventos.png",
+      tags: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
+      href: "https://github.com/felipemchdev/webevent_react-node",
+      priority: false,
+      gradientFrom: "#0b132b",
+      gradientTo: "#0ea5e9",
+    },
+    {
+      title: "Calculadora KivyMD com Matplotlib",
+      subtitle: "Calculadora em KivyMD com Matplotlib, para gerar gráficos das funções",
+      imageSrc: "/images/calculadora-kivy.png",
+      tags: ["KivyMD", "Matplotlib", "Python"],
+      href: "https://github.com/felipemchdev/CalculadoraKivyMD/releases/tag/KIVY!",
+      priority: false,
+      gradientFrom: "#0f172a",
+      gradientTo: "#14b8a6",
+    },
+  ]
+
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="font-bold text-xl">Portfólio de Felipe Machado</div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#inicio" className="text-sm font-medium transition-colors hover:text-primary">
-              Início
-            </Link>
-            <Link href="#projetos" className="text-sm font-medium transition-colors hover:text-primary">
-              Projetos
-            </Link>
-            <Link href="#habilidades" className="text-sm font-medium transition-colors hover:text-primary">
-              Habilidades
-            </Link>
-            <Link href="#contato" className="text-sm font-medium transition-colors hover:text-primary">
-              Contato
-            </Link>
-          </nav>
-          <div className="flex items-center gap-2">
-            <Link href="https://github.com/felipemchdev" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Button>
-            </Link>
-            <Link href="https://linkedin.com/in/felipemch" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-      <main className="flex-1">
-        <section id="inicio" className="container py-24 sm:py-32">
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
-            <div className="space-y-4 md:w-1/2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Olá, me chamo <br/> <span className="text-primary">Felipe Machado</span>
-              </h1>
-              <p className="text-muted-foreground md:text-xl">
-              Sou um desenvolvedor back-end com 1 ano de experiência,
-              <br/> Atualmente estou atuando na área de Engenharia de Dados.
-              </p>
-              <div className="flex gap-4">
-                <Button asChild>
-                  <Link href="#projetos">Ver Projetos</Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="#contato">Contato</Link>
-                </Button>
+    <main className="bg-neutral-950 text-white">
+      {/* HERO: full-viewport row. Left is sticky; right scrolls internally. */}
+      <section className="px-4 pt-4 pb-16 lg:pb-4">
+        <div className="grid h-full grid-cols-1 gap-4 lg:grid-cols-[420px_1fr]">
+          {/* LEFT: sticky and full height */}
+          <aside className="lg:sticky lg:top-4 lg:h-[calc(100svh-2rem)]">
+            <RevealOnView
+              as="div"
+              intensity="hero"
+              className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-neutral-900/60 p-6 sm:p-8"
+              staggerChildren
+            >
+              {/* Texture background */}
+              <div className="pointer-events-none absolute inset-0 opacity-5 mix-blend-soft-light">
+                <DotGridShader />
               </div>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] rounded-full overflow-hidden border-4 border-primary">
-                <Image
-                  src="/perfil.jpeg"
-                  alt="Foto de perfil"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center mt-16">
-            <Link href="#projetos" className="animate-bounce">
-              <Button variant="ghost" size="icon" aria-label="Rolar para baixo">
-                <ChevronDown className="h-6 w-6" />
-              </Button>
-            </Link>
-          </div>
-        </section>
 
-        <section id="projetos" className="container py-24 sm:py-32 bg-muted/50">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Meus Projetos</h2>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl">
-              Confira alguns dos meus trabalhos mais recentes e relevantes.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ProjectCard
-              title="Portfólio"
-              description="Esse site que você está vendo agora 😀"
-              image="/die.png?height=300&width=500"
-              tags={["React.js", "Next.js", "TypeScript", "Tailwind CSS"]}
-              link="https://github.com/felipemchdev/portfolio"
-            />
-            <ProjectCard
-              title="API Site de Eventos"
-              description="API para se inscrever em eventos, com sistema de contabilização de inscritos e convites."
-              image="/cover.png?height=300&width=500"
-              tags={["Python", "Flask", "SQLAlchemy"]}
-              link="https://github.com/felipemchdev/Event_API_Flask"
-            />
-            <ProjectCard
-              title="DataLake Simples"
-              description="Carga e manipulação de dados em formato Parquet."
-              image="/iamage.png?height=300&width=500"
-              tags={["Python", "DuckDB", "Parquet"]}
-              link="https://github.com/felipemchdev/datalake_py_parquet"
-            />
-            <ProjectCard
-              title="Análise de Vendas com Streamlit"
-              description="Dashboard Em Python pra análise de Vendas. (USE JUPYTER NO VSCODE PARA ACESSAR O NOTEBOOK)"
-              image="/tsp.png?height=300&width=500"
-              tags={["Jupyter","Python", "Pandas", "Streamlit"]}
-              link="https://github.com/felipemchdev/fin_analysis_py"
-            />
-            <ProjectCard
-              title="LLM Chatbot"
-              description="Em desenvolvimento..."
-              image="/placeholder.svg?height=300&width=500"
-              tags={["Em Breve", "Python", "LangChain", "Claude Sonnet", "API"]}
-              link="#"
-            />
-            <ProjectCard
-              title="Site de Eventos"
-              description="Página para eventos, com sistema de inscritos e contador de convites."
-              image="/image.png?height=300&width=500"
-              tags={["React.js", "Next.js", "TypeScript", "Tailwind CSS"]}
-              link="https://github.com/felipemchdev/webevent_react-node"
-            />
-            <ProjectCard
-              title="Calculadora KivyMD com Matplotlib"
-              description="Calculadora em KivyMD com Matplotlib, para gerar gráficos das funções."
-              image="/b.png?height=300&width=500"
-              tags={["KivyMD", "Matplotlib", "Python"]}
-              link="https://github.com/felipemchdev/CalculadoraKivyMD/releases/tag/KIVY!"
-            />
-          </div>
-        </section>
-
-        <section id="habilidades" className="container py-24 sm:py-32">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Minhas Habilidades</h2>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl">
-              Tecnologias e ferramentas que utilizo no meu dia a dia.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <SkillBadge name="Python" level={90} />
-            <SkillBadge name="Django" level={65} />
-            <SkillBadge name="Git" level={90} />
-            <SkillBadge name="CI/CD" level={90} />
-            <SkillBadge name="Docker" level={65} />
-            <SkillBadge name="AWS" level={65} />
-            <SkillBadge name="Excel" level={80} />
-          </div>
-
-        <section id="subhabilidades" className="container py-24 sm:py-8">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <p className="max-w-[700px] text-muted-foreground md:text-xl">
-              Outras ferramentas que também uso/conheço:
-            </p>
-          </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              <SkillBadge name="React" level={40} />
-              <SkillBadge name="Next.js" level={40} />
-              <SkillBadge name="Node.js" level={40} />
-              <SkillBadge name="MongoDB" level={70} />
-              <SkillBadge name="MongoDB" level={70} />
-              <SkillBadge name="PostgreSQL" level={70} />
-              <SkillBadge name="HTML" level={95} />
-              <SkillBadge name="CSS" level={90} />
-              <SkillBadge name="JavaScript" level={60} />
-              <SkillBadge name="Tailwind CSS" level={70} />
-            </div>
-          </section>
-
-
-          <div className="mt-16">
-            <Card>
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4">Educação</h3>
-                    <p className="text">
-                      <b>Bacharelado em Engenharia de Computação</b> 
-                      <br/>Centro Universitário Central Paulista (UNICEP).
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      <br/><i>Janeiro 2024 - Atualmente.</i>
-                      <br/> Previsão de conclusão - Dezembro 2027
-                    </p>
+              <div>
+                {/* Profile Image */}
+                <div className="mb-6 flex justify-center lg:justify-start">
+                  <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-blue-500/50 shadow-2xl shadow-blue-500/20">
+                    <Image src="/images/profile.png" alt="Felipe Machado" fill className="object-cover" priority />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4">Experiência</h3>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold">Aprendiz em Engenharia de Dados</h4>
-                        <p className="text-sm ">Jan 2024 - Atualmente</p>
-                        <p className="text-muted-foreground">
-                          <br/>Implementação de códigos e resolução de bugs. 
-                          <br/>Uso de Python, SQL, AWS, Airflow, Git.
-                        </p>
-                      </div>
+                </div>
+
+                {/* Headline with intro blur effect */}
+                <AnimatedHeading
+                  className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl"
+                  lines={["Olá, me chamo", "Felipe Machado"]}
+                />
+
+                <p className="mt-4 max-w-[42ch] text-lg text-white/70">
+                  Sou um engenheiro de software com 2 anos de experiência. Atualmente atuando na função de Arquiteto de
+                  dados.
+                </p>
+
+                {/* CTAs */}
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <Button asChild size="lg" className="rounded-full">
+                    <Link href="#contact">
+                      Entre em Contato
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-white/20 bg-white/5 hover:bg-white/10"
+                    onClick={() => {
+                      console.log("[v0] Scroll button clicked")
+                      const experienceElement = document.getElementById("experience")
+                      console.log("[v0] Experience element found:", experienceElement)
+                      if (experienceElement) {
+                        experienceElement.scrollIntoView({ behavior: "smooth", block: "start" })
+                      } else {
+                        window.scrollTo({ top: 0, behavior: "smooth" })
+                      }
+                    }}
+                  >
+                    Ver Experiência
+                  </Button>
+                </div>
+
+                {/* Social Links */}
+                <div className="mt-8 flex gap-3">
+                  <Button asChild size="icon" variant="ghost" className="rounded-full hover:bg-white/10">
+                    <Link href="https://github.com/felipemchdev" target="_blank" rel="noopener noreferrer">
+                      <Github className="h-5 w-5" />
+                      <span className="sr-only">GitHub</span>
+                    </Link>
+                  </Button>
+                  <Button asChild size="icon" variant="ghost" className="rounded-full hover:bg-white/10">
+                    <Link href="https://linkedin.com/in/felipemch" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="h-5 w-5" />
+                      <span className="sr-only">LinkedIn</span>
+                    </Link>
+                  </Button>
+                  <Button asChild size="icon" variant="ghost" className="rounded-full hover:bg-white/10">
+                    <Link href="mailto:felipe.mch.alt@gmail.com">
+                      <Mail className="h-5 w-5" />
+                      <span className="sr-only">Email</span>
+                    </Link>
+                  </Button>
+                  <Button asChild size="icon" variant="ghost" className="rounded-full hover:bg-white/10">
+                    <Link href="https://cal.com/felipemch" target="_blank" rel="noopener noreferrer">
+                      <Calendar className="h-5 w-5" />
+                      <span className="sr-only">Agendar reunião</span>
+                    </Link>
+                  </Button>
+                </div>
+
+                {/* Education Section */}
+                <div className="mt-10">
+                  <p className="mb-3 text-xs font-semibold tracking-widest text-white/50">EDUCAÇÃO</p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-bold text-white/90">Engenharia de Computação</p>
+                      <p className="text-sm text-white/60">UNICEP - Centro Universitário Central Paulista</p>
+                      <p className="text-xs text-white/50">Jan 2024 - Dez 2027 (Previsão)</p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
 
-        <section id="contato" className="container py-24 sm:py-32 bg-muted/50">
-  <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Entre em Contato</h2>
-    <p className="max-w-[700px] text-muted-foreground md:text-xl">
-      Deseja falar comigo pessoalmente? Agende uma reunião comigo.
-    </p>
-  </div>
-  <div className="flex justify-center mt-4">
-    <a href="https://cal.com/felipe-machado-agenda/" className="inline-flex items-center justify-center px-6 py-3 text-white bg-blue-500 rounded-md hover:bg-blue-600">
-      Agendar
-    </a>
-  </div>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" style={{ marginLeft: '455px', marginTop: '30px' }}>
-  <div className="space-y-4 text-center">
-    <div className="flex items-center gap-3 justify-center">
-      <Mail className="h-6 w-6 text-primary" />
-      <span>felipe.mch.alt@gmail.com</span>
-    </div>
-    <div className="flex items-center gap-3 justify-center">
-      <Linkedin className="h-6 w-6 text-primary" />
-      <span>linkedin.com/in/felipemch</span>
-    </div>
-    <div className="flex items-center gap-3 justify-center">
-      <Github className="h-6 w-6 text-primary" />
-      <span>github.com/felipemchdev</span>
-    </div>
-  </div>
-</div>
-</section>
-      </main>
-      <footer className="border-t py-6 md:py-8">
-        <div className="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            &copy; {new Date().getFullYear()} Felipe Machado. Todos os direitos reservados.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="https://github.com/felipemchdev" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon">
+                {/* Interests Section */}
+                <div className="mt-10">
+                  <p className="mb-3 text-xs font-semibold tracking-widest text-white/50">INTERESSES</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Neural Engineering - EEG, EMG, EKG
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Virtual Reality
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Data Engineering
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Motorsport Data - MATLAB
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      AI Engineering
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Software Development
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Media Creation
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Media Editing
+                    </span>
+                    <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/80">
+                      Photography
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </RevealOnView>
+          </aside>
+
+          {/* RIGHT: scrollable content */}
+          <div className="space-y-4">
+            {/* Experience Section */}
+            <ExperienceSection />
+
+            {/* Projects Section */}
+            <div id="projects" className="scroll-mt-4">
+              {projects.map((p, idx) => (
+                <ProjectCard
+                  key={p.title}
+                  title={p.title}
+                  subtitle={p.subtitle}
+                  imageSrc={p.imageSrc}
+                  tags={p.tags}
+                  href={p.href}
+                  priority={p.priority}
+                  gradientFrom={p.gradientFrom}
+                  gradientTo={p.gradientTo}
+                  customContent={p.customContent}
+                  imageContainerClassName="lg:h-full"
+                  containerClassName={idx === 0 ? "lg:h-auto mb-4" : "lg:h-[calc(50svh-1rem)] mb-4"}
+                  revealDelay={idx * 0.06}
+                />
+              ))}
+            </div>
+
+            {/* Skills Section */}
+            <SkillsSection />
+
+            {/* Contact Section */}
+            <ContactSection />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-neutral-900/40 px-4 py-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-sm text-white/50">
+              © {new Date().getFullYear()} Felipe Machado. Todos os direitos reservados.
+            </p>
+            <div className="flex gap-4">
+              <Link
+                href="https://github.com/felipemchdev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white transition-colors"
+              >
                 <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Button>
-            </Link>
-            <Link href="https://linkedin.com/in/felipemch" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon">
+              </Link>
+              <Link
+                href="https://linkedin.com/in/felipemch"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Button>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }
