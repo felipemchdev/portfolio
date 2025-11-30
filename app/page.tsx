@@ -20,7 +20,7 @@ export default function Page() {
     {
       title: "Portfólio",
       subtitle: "Este site que você está vendo agora 😄",
-      imageSrc: "/images/portfolio-screenshot.png",
+      imageSrc: "/images/portfolio-image.png",
       tags: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
       href: "https://github.com/felipemchdev/portfolio",
       priority: true,
