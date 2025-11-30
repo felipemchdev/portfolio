@@ -32,7 +32,7 @@ export function ExperienceSection() {
                 </div>
                 <div className="mb-1 flex items-center gap-2">
                   <div className="relative h-6 w-6 flex-shrink-0">
-                    <Image src="/images/image.png" alt="Serasa Experian" fill className="object-contain" />
+                    <Image src="/images/serasa-logo.png" alt="Serasa Experian" fill className="object-contain" />
                   </div>
                   <p className="text-white/80 font-medium">Serasa Experian</p>
                 </div>
@@ -82,7 +82,7 @@ export function ExperienceSection() {
                 </div>
                 <div className="mb-1 flex items-center gap-2">
                   <div className="relative h-6 w-6 flex-shrink-0">
-                    <Image src="/images/image.png" alt="Serasa Experian" fill className="object-contain" />
+                    <Image src="/images/serasa-logo.png" alt="Serasa Experian" fill className="object-contain" />
                   </div>
                   <p className="text-white/80 font-medium">Serasa Experian</p>
                 </div>
