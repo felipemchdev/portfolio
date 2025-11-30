@@ -40,9 +40,10 @@ export default function ProjectCard({
     <article className={cn("group relative", containerClassName)}>
       <RevealOnView
         delay={revealDelay}
-        className="rounded-3xl border-2 border-white p-1 shadow-[0_10px_60px_-10px_rgba(0,0,0,0.6)] lg:h-full"
+        className="rounded-3xl border border-white/50 p-1 shadow-[0_10px_60px_-10px_rgba(0,0,0,0.6)] lg:h-full"
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgba(255, 255, 255, 0.03)',
+          backdropFilter: 'blur(10px)'
         }}
       >
         <div className="relative overflow-hidden rounded-[1.35rem] bg-black lg:h-full">
