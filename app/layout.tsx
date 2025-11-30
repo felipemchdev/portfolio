@@ -4,10 +4,10 @@ import "./globals.css"
 import MouseGlow from "@/components/mouse-glow"
 
 export const metadata: Metadata = {
-  title: "Felipe Machado - Desenvolvedor Back-end & Engenharia de Dados",
+  title: "Felipe Machado - Portfolio",
   description:
-    "Portfólio profissional de Felipe Machado, desenvolvedor back-end com experiência em Python, SQL, AWS, e Engenharia de Dados.",
-  generator: "v0.dev",
+    "Portfólio profissional de Felipe Machado, desenvolvedor de software",
+  generator: "eu mesmo muahahahaha",
 }
 
 export default function RootLayout({
