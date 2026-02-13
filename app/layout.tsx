@@ -1,44 +1,37 @@
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
-import MouseGlow from "@/components/mouse-glow"
+import type { Metadata } from "next";
+import { Inter, Libre_Baskerville } from "next/font/google"; // Using Libre Baskerville for serif headings
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const libreBaskerville = Libre_Baskerville({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-serif",
+});
 
 export const metadata: Metadata = {
-  title: "Felipe Machado - Portfolio",
-  description:
-    "Portfólio profissional de Felipe Machado, desenvolvedor de software",
-  generator: "eu mesmo muahahahaha",
-}
+  title: "Felipe Machado | Portfolio",
+  description: "Engenheiro de Software e Arquiteto de Dados.",
+};
+
+import { ThemeProvider } from "@/components/theme-provider"
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap"
-          rel="stylesheet"
-        />
-        <style>{`
-:root {
-  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-html { 
-  font-family: var(--font-sans);
-  scroll-behavior: smooth;
-}
-        `}</style>
-      </head>
-      <body>
-        <MouseGlow />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${libreBaskerville.variable} ${inter.variable} font-sans antialiased text-foreground bg-background`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
