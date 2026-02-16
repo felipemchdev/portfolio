@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import type { Locale } from "@/app/data"
 
 interface LanguageToggleProps {
@@ -8,9 +9,9 @@ interface LanguageToggleProps {
   label: string
 }
 
-const languageOptions: Array<{ locale: Locale; code: string; name: string; flag: string }> = [
-  { locale: "pt", code: "PT", name: "Portugues", flag: "🇧🇷" },
-  { locale: "en", code: "EN", name: "English", flag: "🇺🇸" },
+const languageOptions: Array<{ locale: Locale; code: string; name: string; flagSrc: string }> = [
+  { locale: "pt", code: "PT", name: "Portuguese", flagSrc: "/flags/br.svg" },
+  { locale: "en", code: "EN", name: "English", flagSrc: "/flags/us.svg" },
 ]
 
 export function LanguageToggle({ locale, onChange, label }: LanguageToggleProps) {
@@ -35,7 +36,14 @@ export function LanguageToggle({ locale, onChange, label }: LanguageToggleProps)
               : "text-muted-foreground hover:text-foreground"
               }`}
           >
-            <span aria-hidden>{option.flag}</span>
+            <Image
+              src={option.flagSrc}
+              alt=""
+              aria-hidden
+              width={14}
+              height={10}
+              className="rounded-[1px]"
+            />
             <span>{option.code}</span>
           </button>
         )
