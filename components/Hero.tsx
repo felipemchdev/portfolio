@@ -100,6 +100,39 @@ export function Hero({ siteConfig, hero, locale, onLocaleChange }: HeroProps) {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="mt-8 flex flex-wrap items-center gap-3 lg:mt-0"
       >
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href="/pdfs/CV_FELIPE_MACHADO.pdf"
+            download
+            className="inline-flex items-center justify-center rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-foreground hover:shadow-sm"
+          >
+            <Image
+              src="/flags/br.svg"
+              alt=""
+              aria-hidden
+              width={14}
+              height={10}
+              className="mr-1.5 rounded-[1px]"
+            />
+            {hero.portfolioPtLabel}
+          </a>
+          <a
+            href="/pdfs/RESUME_FELIPE_MACHADO.pdf"
+            download
+            className="inline-flex items-center justify-center rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-foreground hover:shadow-sm"
+          >
+            <Image
+              src="/flags/us.svg"
+              alt=""
+              aria-hidden
+              width={14}
+              height={10}
+              className="mr-1.5 rounded-[1px]"
+            />
+            {hero.portfolioEnLabel}
+          </a>
+        </div>
+        <div className="basis-full" />
         <LanguageToggle
           locale={locale}
           onChange={onLocaleChange}
