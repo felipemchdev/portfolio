@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📌 Portfolio – Felipe Machado
 
-## Getting Started
+Este repositório contém o código-fonte do meu portfolio pessoal desenvolvido com Next.js, criado para apresentar de forma clara, moderna e responsiva minhas habilidades, projetos e experiências como desenvolvedor.
 
-First, run the development server:
+✨ Visão Geral
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O portfolio funciona como uma vitrine técnica do meu trabalho, hospedado e acessível via web (deploy estável com Vercel). Ele foi construído com foco em desempenho, organização e experiência do usuário, utilizando as melhores práticas de desenvolvimento front-end.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠 Tecnologias e Abordagens
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A arquitetura do projeto demonstra familiaridade com:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js — estrutura principal da aplicação, para rotas, renderização híbrida e boa performance.
 
-## Learn More
+TypeScript — tipagem estática, maior segurança e produtividade no desenvolvimento.
 
-To learn more about Next.js, take a look at the following resources:
+CSS modularizado — estilos mantidos de forma escalável e organizada.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Estrutura de componentes reutilizáveis — lógica separada e escalável para seções de interface.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A proporção de linguagens no código-fonte indica forte foco em lógica e organização, com maior peso de TypeScript (~87%), seguido por CSS e JavaScript.
 
-## Deploy on Vercel
+📁 Estrutura do Projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O repositório é organizado em pastas principais que refletem uma divisão clara de responsabilidades:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+app/ – rotas e estrutura visual principal.
+
+components/ – componentes UI reutilizáveis.
+
+lib/ – utilitários e lógica auxiliar.
+
+public/ – recursos estáticos (imagens, ícones, assets).
+
+Essa estrutura favorece escala e facilidade de manutenção, além de permitir evolução contínua da aplicação.
+
+🎯 O Que Este Portfolio Demonstra Sobre Mim
+
+Este projeto evidencia:
+
+Capacidade de projetar e implementar aplicações web modernas, utilizando frameworks consolidados e boas práticas.
+
+Organização de código e modularização, facilitando expansão e legibilidade.
+
+Aptidão com tecnologias de front-end atualizadas, incluindo Next.js e TypeScript.
+
+Foco em usabilidade e apresentação profissional, importante para mostrar trabalhos e habilidades com impacto visual.
+
+🌐 Acesse Online
+
+O portfolio está disponível em:
+🔗 https://portfolio-felipemch.vercel.app
