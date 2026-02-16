@@ -16,8 +16,11 @@ TypeScript
 O repositório é organizado em pastas principais que refletem uma divisão clara de responsabilidades:
 
 app/ – rotas e estrutura visual principal.
+
 components/ – componentes UI reutilizáveis.
+
 lib/ – utilitários e lógica auxiliar.
+
 public/ – recursos estáticos (imagens, ícones, assets).
 
 
