@@ -12,6 +12,11 @@ const libreBaskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   title: "Felipe Machado | Portfolio",
   description: "Engenheiro de Software e Arquiteto de Dados.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 import { ThemeProvider } from "@/components/theme-provider"
